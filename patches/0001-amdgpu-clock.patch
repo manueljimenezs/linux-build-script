@@ -1,0 +1,12 @@
+--- a/drivers/gpu/drm/amd/display/include/signal_types.h	2020-12-17 20:11:00.261706513 +0100
++++ b/drivers/gpu/drm/amd/display/include/signal_types.h	2020-12-17 20:09:14.391997315 +0100
+@@ -29,7 +29,7 @@
+ /* Minimum pixel clock, in KHz. For TMDS signal is 25.00 MHz */
+ #define TMDS_MIN_PIXEL_CLOCK 25000
+ /* Maximum pixel clock, in KHz. For TMDS signal is 165.00 MHz */
+-#define TMDS_MAX_PIXEL_CLOCK 165000
++#define TMDS_MAX_PIXEL_CLOCK 250000
+ 
+ enum signal_type {
+ 	SIGNAL_TYPE_NONE		= 0L,		/* no signal */
+
