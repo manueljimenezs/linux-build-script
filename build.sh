@@ -3,11 +3,21 @@
 KERNELVER=linux-5.14.2
 
 get_and_prepare() {
-    wget https://cdn.kernel.org/pub/linux/kernel/v5.x/$KERNELVER.tar.xz
-    tar -xf $KERNELVER.tar.xz
+    if [ ! -f $KERNELVER.tar.xz ]; then
+        wget https://cdn.kernel.org/pub/linux/kernel/v5.x/$KERNELVER.tar.xz
+    fi
+    
+    if [ ! -d $KERNELVER/ ]; then
+        tar -xf $KERNELVER.tar.xz
+    fi
+    
+    if [ $BOOT_FROM_BTRFS -eq 1 ]; then
+        sed -i "s/^CONFIG_BTRFS_FS=.*/CONFIG_BTRFS_FS=y/g" config
+        sed -i "s/^#CONFIG_BTRFS_FS=.*/CONFIG_BTRFS_FS=y/g" config
+    fi
+
     cp -r config $KERNELVER/.config
 }
-
 
 patch_kernel() {	
   for i in $(ls patches); do
