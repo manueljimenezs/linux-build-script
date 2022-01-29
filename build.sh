@@ -1,6 +1,6 @@
 #!/bin/bash
 # zcat /proc/config.gz > .config
-KERNELVER=linux-5.14.2
+KERNELVER=linux-5.16.4
 
 get_and_prepare() {
     if [ ! -f $KERNELVER.tar.xz ]; then
