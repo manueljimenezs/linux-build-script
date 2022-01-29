@@ -1,6 +1,7 @@
 #!/bin/bash
 # zcat /proc/config.gz > .config
 KERNELVER=linux-5.16.4
+BOOT_FROM_BTRFS=1
 
 get_and_prepare() {
     if [ ! -f $KERNELVER.tar.xz ]; then
